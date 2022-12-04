@@ -121,3 +121,50 @@ let capicua = (numero) => {
 /* 11) Programa una función que calcule el factorial de un número
       (El factorial de un entero positivo n, se define como el producto de todos 
       los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.*/
+
+let funcionFactorial = (numero) => {
+    if (typeof numero !== "number") return "El primer parámetro debe ser de tipo number."
+        
+    if (numero === 0) return 1
+    return numero * funcionFactorial(numero - 1)        
+}
+    
+/* 12) Programa una función que determine si un número es primo 
+       (aquel que solo es divisible por sí mismo y 1) o no, 
+       Por ejemplo: miFuncion(7) devolverá true. */
+
+let numeroPrimo = (numero) => {
+    if (typeof numero !== "number") return "El primer parámetro debe ser de tipo number."
+
+    if (numero === 0 || numero === 1) return false
+
+    for (i=2; i < numero; i++) {
+        if (numero % i === 0) return false
+    }
+
+    return true
+}
+
+/* 13) Programa una función que determine si un número es par o impar,
+       Por ejemplo: miFuncion(29) devolverá Impar. */ 
+
+let esPar = (numero) => {
+    if (typeof numero !== "number") return "El primer parámetro debe ser de tipo number."
+
+    return numero % 2 === 0 ? "Es par." : "Es impar."
+}
+
+/* 14) Programa una función para convertir grados Celsius a Fahrenheit 
+       y viceversa, Por Ejemplo: miFuncion(0,"C") devolverá 32°F. */ 
+
+let gradosConvertidos = (numero, letra) => {
+    if (typeof numero !== "number") return "El primer parámetro debe ser de tipo number."
+    if (typeof letra !== "string") return "El primer parámetro debe ser de tipo string."
+    if (letra.toLowerCase() !== "c" && letra.toLowerCase() !== "f") return "Las unicas unidades de medida que se permiten son C° y F°."
+    
+    if (letra.toLowerCase() === "c") {
+        return numero * 1.8 + 32
+    } else {
+        return (numero - 32) / 1.8
+    }
+    }
